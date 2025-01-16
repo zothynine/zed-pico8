@@ -3,11 +3,11 @@ use zed::lsp::CompletionKind;
 use zed::{CodeLabel, CodeLabelSpan, LanguageServerId};
 use zed_extension_api::{self as zed, Result};
 
-struct LuaExtension {
+struct Pico8Extension {
     cached_binary_path: Option<String>,
 }
 
-impl LuaExtension {
+impl Pico8Extension {
     fn language_server_binary_path(
         &mut self,
         language_server_id: &LanguageServerId,
@@ -101,7 +101,7 @@ impl LuaExtension {
     }
 }
 
-impl zed::Extension for LuaExtension {
+impl zed::Extension for Pico8Extension {
     fn new() -> Self {
         Self {
             cached_binary_path: None,
@@ -167,4 +167,4 @@ impl zed::Extension for LuaExtension {
     }
 }
 
-zed::register_extension!(LuaExtension);
+zed::register_extension!(Pico8Extension);
